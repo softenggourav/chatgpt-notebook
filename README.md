@@ -6,7 +6,7 @@ Use case:
 - a separate tab (notebook) where you interact with chatGPT regarding a certain project of yours
 
 
-Demo:
+#### Demo:
 
 ![chatGPT-notebook](screencast.gif)
 
