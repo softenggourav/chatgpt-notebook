@@ -3,11 +3,31 @@
 <head>
   <title>ChatGPT Notebook</title>
   <style>
-    /* Add your CSS styles here */
+    ul {
+      /* Set desired width and height */
+      width: 300px;
+      height: 400px;
+    
+      /* Adjust padding and margins for better spacing */
+      padding: 10px;
+      margin: 0 auto; /* Center the list horizontally */
+    }
+    
+    li {
+      /* Adjust list item size if needed */
+      font-size: 14px;
+      padding: 5px;
+    }
+    
   </style>
 </head>
 <body>
   <h1>ChatGPT Notebook</h1>
+  <div id="chat-container">
+    <input type="text" id="search-bar" placeholder="Search Chat Notes">
+    <ul id="chatList"></ul>
+  </div>
+  
   <ul id="chatList"></ul>
   <script src="popup.js"></script>
 </body>

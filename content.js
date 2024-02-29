@@ -6,24 +6,28 @@ console.log("sending links from content script");
 // Select all anchor elements on the page
 const anchorElements = document.querySelectorAll('a');
 
-// Filter anchor elements whose href attribute starts with "/c/"
-const chatAnchorElements = Array.from(anchorElements).filter(anchor => {
-    const href = anchor.getAttribute('href');
-    return href && href.startsWith('/c/');
+const chatLinkData = [];
+anchorElements.forEach(anchor => {
+  const title = anchor.textContent.trim(); // Extract title and trim any whitespace
+  const href = anchor.getAttribute('href');
+
+  //console.log("href inside content.js is", href)
+
+  // If title is not empty, add to the array
+  if (title && href && href.startsWith('/c/')) {
+    chatLinkData.push({title: title, href: "https://chat.openai.com" + href });
+  }
 });
 
-// Extract text content of chat anchor elements to obtain chat titles
-const chatTitles = chatAnchorElements.map(anchor => anchor.textContent);
-
 // sending to background.js
-chrome.runtime.sendMessage({ chatTitles }, (response) => {
-    console.log('Message sent to background script');
+chrome.runtime.sendMessage({ chatLinkData }, (response) => {
+    console.log('chatLinkData sent to background script');
 });
 }
 
 
 // triggering after 5 seconds, waitnig for page to load (use page load event instead)
-setTimeout(sendLinks, 5000);
+setTimeout(sendLinks, 10000);
 
 
 // });
