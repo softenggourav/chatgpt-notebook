@@ -8,4 +8,7 @@ Use case:
 
 Demo:
 
-![chatGPT-notebook](https://github.com/sudipidus/chatgpt-notebook/blob/692b0904ec1a004e96a2a3dfdeb085ef6d44170a/screencast.mov)
+![chatGPT-notebook](screencast.gif)
+
+
+
